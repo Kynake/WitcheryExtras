@@ -46,8 +46,10 @@ public class WitcheryExtras {
         }
 
         if (Loader.isModLoaded("Baubles|Expanded")) {
+            BaubleExpandedSlots.tryAssignSlotsUpToMinimum(BaubleExpandedSlots.amuletType, 1);
             BaubleExpandedSlots.tryAssignSlotsUpToMinimum(BaubleExpandedSlots.beltType, 1);
             BaubleExpandedSlots.tryAssignSlotsUpToMinimum(BaubleExpandedSlots.quiverType, 1);
+            BaubleExpandedSlots.tryAssignSlotsUpToMinimum(BaubleExpandedSlots.charmType, 1);
         }
     }
 
