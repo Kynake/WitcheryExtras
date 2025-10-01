@@ -22,6 +22,8 @@ import baubles.api.BaublesApi;
 import baubles.api.expanded.BaubleExpandedSlots;
 import baubles.api.expanded.BaubleItemHelper;
 import baubles.api.expanded.IBaubleExpanded;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @SuppressWarnings("UnusedMixin")
 @Mixin(ItemGoblinClothes.class)
@@ -36,6 +38,7 @@ public abstract class ItemGoblinClothesMixin implements IBaubleExpanded {
     @Shadow
     public abstract void onArmorTick(World world, EntityPlayer player, ItemStack itemStack);
 
+    @SideOnly(Side.CLIENT)
     @WrapMethod(method = "addInformation")
     public void witcheryExtras$addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip,
             boolean expanded, Operation<Void> original) {
@@ -74,6 +77,8 @@ public abstract class ItemGoblinClothesMixin implements IBaubleExpanded {
     }
 
     // Baubles interface methods
+    @Unique
+    @Override
     public String[] getBaubleTypes(ItemStack stack) {
         if (stack.getItem() == Witchery.Items.GULGS_GURDLE) {
             return witcheryExtras$gulgsGurdleBaubleTypes;
@@ -86,28 +91,34 @@ public abstract class ItemGoblinClothesMixin implements IBaubleExpanded {
         return null;
     }
 
+    @Unique
     @Override
     public BaubleType getBaubleType(ItemStack itemstack) {
         return null;
     }
 
+    @Unique
     @Override
     public void onWornTick(ItemStack itemstack, EntityLivingBase entity) {
         if (!(entity instanceof EntityPlayer player)) return;
         onArmorTick(entity.worldObj, player, itemstack);
     }
 
+    @Unique
     @Override
     public void onEquipped(ItemStack stack, EntityLivingBase player) {}
 
+    @Unique
     @Override
     public void onUnequipped(ItemStack stack, EntityLivingBase player) {}
 
+    @Unique
     @Override
     public boolean canEquip(ItemStack stack, EntityLivingBase player) {
         return stack.getItem() == Witchery.Items.GULGS_GURDLE || stack.getItem() == Witchery.Items.MOGS_QUIVER;
     }
 
+    @Unique
     @Override
     public boolean canUnequip(ItemStack stack, EntityLivingBase player) {
         return true;
