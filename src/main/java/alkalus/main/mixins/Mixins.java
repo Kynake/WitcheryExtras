@@ -30,9 +30,9 @@ public enum Mixins implements IMixins {
             .setPhase(Phase.LATE)),
     WITCHERY_BAUBLES_COMPAT(new MixinBuilder()
             .addCommonMixins(
-                    "witchery.BlockWitchDoorMixin",
-                    "witchery.ItemGeneralMixin",
-                    "witchery.ItemGoblinClothesMixin")
+                    "witchery.BlockWitchDoorMixin_Bauble",
+                    "witchery.ItemGeneralMixin_Bauble",
+                    "witchery.ItemGoblinClothesMixin_Bauble")
             .addRequiredMod(TargetedMod.WITCHERY)
             .addRequiredMod(TargetedMod.BAUBLES_EXPANDED)
             .setPhase(Phase.LATE));

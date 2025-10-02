@@ -27,7 +27,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SuppressWarnings("UnusedMixin")
 @Mixin(ItemGoblinClothes.class)
-public abstract class ItemGoblinClothesMixin implements IBaubleExpanded {
+public abstract class ItemGoblinClothesMixin_Bauble implements IBaubleExpanded {
 
     @Unique
     private static final String[] witcheryExtras$mogsQuiverBaubleTypes = { BaubleExpandedSlots.quiverType };
